@@ -1,4 +1,5 @@
 import { environment } from '../../../environments/environment';
+import { User } from '../../user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  login = '';
-  password = '';
+  user = new User(-1, '', '');
   API_URL = environment.apiUrl;
-  
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  signIn() {
+    this.user.login = 'signedIN';
+  }
+
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.user); }
 
 }
