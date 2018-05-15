@@ -1,13 +1,15 @@
 <div class="container">
 	<h1>Sign in</h1>
+	token: {{token}}<br/>
+	role: {{role}}<br/>
 	{{diagnostic}}
 	<form #loginForm="ngForm">
 		<div class="form-group">
-			<label for="login">Login</label> 
+			<label for="username">Login</label> 
 			
-			<input type="text" class="form-control" id="login" required 
-				[(ngModel)]="user.login" name="login" #login="ngModel">
-			<div [hidden]="login.valid || login.pristine" class="alert alert-danger">
+			<input type="text" class="form-control" id="username" required 
+				[(ngModel)]="user.username" name="username" #username="ngModel">
+			<div [hidden]="username.valid || username.pristine" class="alert alert-danger">
 				Login is required
 			</div>
 		</div>

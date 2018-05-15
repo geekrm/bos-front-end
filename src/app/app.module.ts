@@ -7,7 +7,9 @@ import { routing } from './app.routing';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { environment } from '../environments/environment';
+import { SigninService } from './services/signin.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,9 +19,9 @@ import { FormsModule } from '@angular/forms';
     PanelComponent
   ],
   imports: [
-    BrowserModule, routing, FormsModule
+    BrowserModule, routing, FormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [SigninService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
