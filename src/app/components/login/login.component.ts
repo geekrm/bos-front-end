@@ -3,6 +3,7 @@ import { AuthorizationData } from '../../models/authorizationdata';
 import { User } from '../../models/user';
 import { SigninService } from '../../services/signin.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,9 @@ export class LoginComponent implements OnInit {
   role = 'none';
   user = new User(-1, '', '');
   API_URL = environment.apiUrl;
-
-  constructor(private signInService: SigninService) { }
+  alertHidden = true;
+  
+  constructor(private signInService: SigninService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,13 +31,19 @@ export class LoginComponent implements OnInit {
   }
   
   private setCurrentAuthData(data: AuthorizationData) {
+    
+    if (data == null) {
+      this.alertHidden = false;
+      return;
+    }
+    
+    this.alertHidden = true;
     this.token = data.token;
     this.role = data.role;
     localStorage.setItem('token', data.token);
     localStorage.setItem('role', data.role);
+    
+    this.router.navigate(['/panel']);
   }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.user); }
 
 }

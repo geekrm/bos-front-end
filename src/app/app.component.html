@@ -5,9 +5,9 @@
   </h1>
   <h4>Admin panel</h4>
   <nav>
-    <a routerLink="/login" routerLinkActive="active">Login</a>
-    <a routerLink="/panel" routerLinkActive="active">Panel</a>
+    <a [hidden]="!isLoggedIn()" href="javascript:void(0);" (click)="signOut()">Sign out</a>
   </nav>
+ 
   <router-outlet></router-outlet>
   
 </div>

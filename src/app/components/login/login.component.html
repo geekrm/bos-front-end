@@ -1,8 +1,8 @@
 <div class="container">
 	<h1>Sign in</h1>
-	token: {{token}}<br/>
-	role: {{role}}<br/>
-	{{diagnostic}}
+	<div [hidden]="alertHidden" class="alert alert-danger">
+		Invalid login or password
+	</div>
 	<form #loginForm="ngForm">
 		<div class="form-group">
 			<label for="username">Login</label> 

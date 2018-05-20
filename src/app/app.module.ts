@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { environment } from '../environments/environment';
+import { AuthService } from './services/auth.service';
 import { SigninService } from './services/signin.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule, routing, FormsModule, HttpClientModule
   ],
-  providers: [SigninService],
+  providers: [SigninService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
