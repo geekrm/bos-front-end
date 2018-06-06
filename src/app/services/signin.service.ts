@@ -33,6 +33,8 @@ export class SigninService {
   
   public signOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    localStorage.removeItem('role');
   }
 
 }

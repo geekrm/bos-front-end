@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { LastLoggedInfo } from '../../models/lastloggedinfo';
+import { LastloggedService } from '../../services/lastlogged.service';
+
 
 @Component({
   selector: 'app-panel',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PanelComponent implements OnInit {
 
-  constructor() { }
+  lastLoggedDate = '';
+  lastLoggedIP   = '';
+
+  constructor(private lastLoggedService: LastloggedService) { }
 
   ngOnInit() {
+    this.lastLoggedService.getMyLastLoggedInfo().subscribe(data => this.setLastLoggedInfo(data));
+  }
+  
+  private setLastLoggedInfo(lastLoggedInfo: LastLoggedInfo) {
+    this.lastLoggedDate = lastLoggedInfo.lastLoggedDate;
+    this.lastLoggedIP = lastLoggedInfo.lastLoggedIP;
   }
 
 }
