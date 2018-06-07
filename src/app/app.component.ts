@@ -1,24 +1,32 @@
 import { environment } from '../environments/environment';
 import { SigninService } from './services/signin.service';
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  constructor(private signInService: SigninService, private router: Router) {}
+  username = '';
+  role = '';
+  
+  constructor(private signInService: SigninService) {}
+  
+  ngOnInit(): void {
+    if (this.isLoggedIn()) {
+      this.username = localStorage.getItem('username');
+      this.role = localStorage.getItem('role');
+    } else {
+      this.username = '';
+      this.role = '';
+    }
+  }
+
   
   get storageToken(): any {
     return localStorage.getItem('token');
-  }
-  
-  public signOut() {
-    this.signInService.signOut();
-    this.router.navigate(['/login']);
   }
   
   public isLoggedIn(): boolean {

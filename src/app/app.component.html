@@ -1,13 +1,12 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Beauty of Science
-  </h1>
-  <h4>Admin panel</h4>
-  <nav>
-    <a [hidden]="!isLoggedIn()" href="javascript:void(0);" (click)="signOut()">Sign out</a>
-  </nav>
- 
+
+<div class="wrapper">
+	<div class="topBar">
+		<h1>
+    	Beauty of Science
+  		</h1>
+	</div>
+  
+   
   <router-outlet></router-outlet>
   
 </div>

@@ -1,0 +1,28 @@
+table.items {
+	width: 100%;
+	background-color: #fff;
+	border-spacing: 1px;
+	border-collapse: separate;
+}
+
+
+
+table.items tr th {
+	text-align: center;
+	padding: 5px;
+	font-weight: bold;
+	background-color: #999;
+	color: #fff;
+}
+
+table.items tr td {
+	background-color: #eee;
+	padding: 5px 10px;
+	text-align: right;
+}
+
+span.lastLoggedInfo {
+	color: #333;
+	font-size: 11px;
+	
+}
